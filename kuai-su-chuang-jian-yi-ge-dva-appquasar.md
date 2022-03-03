@@ -110,8 +110,6 @@ const path = require("path")
 
 ![](<.gitbook/assets/image (3).png>)
 
-
-
 ### -修改 quasar.conf.js 配置文件
 
 修改该文件的 boot 变量，在数组中添加 "dva"。
@@ -132,31 +130,44 @@ boot: ["axios", "dva"],
 
 我们推荐在Vue生命周期的 `created` 时执行以下代码。
 
+> 您项目本地启动的URL应当为：
+>
+> https://localhost.heroxw.com:4443/?sys=32位机器码
+>
+> 您项目发布后，自英雄小屋客户端启动的URL为：
+>
+> https://dvaapp.heroxw.com/PRODUCTION\_ID/?sys=32位机器码
+>
+> 机器码是表示主机身份的一串字符串，由客户端提供。
+
 {% tabs %}
-{% tab title="前端实现" %}
+{% tab title="created" %}
 ```javascript
 // quasar已经全局地将dva sdk导入，只需要调用 this.$dva 就可以访问SDK
+this.$dva.developer.system_code = "YOUR SYSTEM CODE"
 this.$dva.developer.developer_id = "YOUR DEVELOPER ID"
-this.$dva.developer.production_id = "YOUR APP DOMAIN" // like com.heroxw.record
-this.$dva.developer.access_token = "YOUR ACCESS TOKEN"    // 后端生成
-this.$dva.developer.reg() // 发起注册
+this.$dva.developer.production_id = "YOUR PRODUCTION ID"
+this.$dva.developer.access_token = "YOUR ACCESS TOKEN"
+this.$dva.developer.reg()    // 发起注册
+    .then((result) => {
+        console.log(resule)    // 注册成功，产品可以正常使用
+        // Your Code
+    })
+    .reject((result) => {
+        console.log(result)    // 注册失败
+        // Your Code
+    })
+    .catch((result) => {
+        console.log(result)    // 注册异常
+        // Your Code
+    })
 ```
-{% endtab %}
-
-{% tab title="后端：Python" %}
-
-{% endtab %}
-
-{% tab title="后端：PHP" %}
-
 {% endtab %}
 {% endtabs %}
 
 在以上前端代码中，您需要对`developer_id` 、 `production_id` 和 `access_token` 三个变量赋值。其中，`developer_id` 为您的开发者ID，用于表示您是合法的英雄小屋开发者；`production_id` 为产品ID，用于唯一地表示此产品。`developer_id` 的格式需为 `com.heroxw.*` 。**这两个变量您均可以在开发者中心找到**。
 
 变量 `access_token` 为官方接口颁发的一串鉴权token。您需要请求 `DVA API` 中的接口来获得这一变量。这意味着您的服务必须要有后端。若您没有维护独立后端服务的条件，可以选择英雄小屋的官方 云代理。
-
-
 
 &#x20;\* 后端接口：获取access\_token
 
@@ -165,6 +176,20 @@ this.$dva.developer.reg() // 发起注册
 
 {% endswagger-description %}
 {% endswagger %}
+
+### -读取系统信息
+
+
+
+
+
+### -设置和读取超对象（Super Obj）
+
+超对象 `Super Obj` 是英雄小屋官方
+
+
+
+### -设置和读取云变量（Cloud Var）
 
 
 
