@@ -12,37 +12,74 @@
 
 ### os：操作系统
 
-`get_os_type()` (All)：获取操作系统类型（系统名，系统版本，版本拓展字段，系统位数）
+`get_os_type()` (All)：获取操作系统类型
 
+```javascript
+let DVA_OS = this.$dva.system.os
+console.log(DVA_OS.get_os_type())
 
+=====================================================================
+{
+    "type": "Windows_NT",        // 系统类型
+    "platform": "win32",        // 编译名称
+    "release": "10.0.19042",    // 系统版本
+    "arch": "x64"                // 系统架构
+}
+```
 
 `get_os_name()` (All)：获取计算机用户名
 
+```javascript
+let DVA_OS = this.$dva.system.os
+console.log(DVA_OS.get_os_name())
 
+=====================================================================
+DESKTOP-2PE7ADO
+```
 
 `get_cpu_name()` (Windows)： 获取CPU名称
 
+```javascript
+let DVA_OS = this.$dva.system.os
+console.log(DVA_OS.get_cpu_name())
 
+=====================================================================
+Intel(R) Core(TM) i7-8700K CPU @ 3.70GHz
+```
 
 `get_cpu_ghz()` (Windows)： 获取CPU标定主频（GHz）
 
+```javascript
+let DVA_OS = this.$dva.system.os
+console.log(DVA_OS.get_cpu_ghz())
 
-
-`get_cpu_cores()` (All)：获取CPU核心数
-
-
+=====================================================================
+3.70GHz
+```
 
 `get_cpu_processors()` (All)：获取逻辑处理器个数
 
+```javascript
+let DVA_OS = this.$dva.system.os
+console.log(DVA_OS.get_cpu_processors())
 
+=====================================================================
+12
+```
 
 `get_cpu_rate()` (All)：获取CPU当前利用率
 
 
 
-`get_cpu_speed()` (Windows)：获取CPU当前速度
+`get_cpu_speed()` (Windows)：获取CPU当前速度（hz）
 
+```javascript
+let DVA_OS = this.$dva.system.os
+console.log(DVA_OS.get_cpu_speed())
 
+=====================================================================
+3962
+```
 
 `get_ram_size()` (All)：获取内存大小
 
