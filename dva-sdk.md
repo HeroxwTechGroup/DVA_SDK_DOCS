@@ -81,15 +81,27 @@ console.log(DVA_OS.get_cpu_speed())
 3962
 ```
 
-`get_ram_size()` (All)：获取内存大小
+`get_ram_size()` (All)：获取内存大小（B）
 
+```javascript
+let DVA_OS = this.$dva.system.os
+console.log(DVA_OS.get_ram_size())
 
+=====================================================================
+68546744320
+```
 
-`get_ram_usage()` (All)：获取内存利用率
+`get_ram_usage()` (All)：获取内存利用率&#x20;
 
+```javascript
+let DVA_OS = this.$dva.system.os
+console.log(DVA_OS.get_ram_usage())
 
+=====================================================================
+0.2728046443854797
+```
 
-`get_disk_list()` (Windows)：列出所有磁盘分区
+`list_disk()` (Windows)：列出所有磁盘信息
 
 
 
