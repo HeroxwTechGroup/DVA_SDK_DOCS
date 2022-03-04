@@ -129,7 +129,7 @@ console.log(DVA_OS.get_ram_usage())
 
 
 
-### net: 网络
+### net: 网络和位置信息
 
 `get_speedtest()` (All)：获取主机网速数据（延迟、上行带宽、下行带宽、网络抖动）
 
