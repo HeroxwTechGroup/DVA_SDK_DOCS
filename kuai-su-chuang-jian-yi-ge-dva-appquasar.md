@@ -132,11 +132,11 @@ boot: ["axios", "dva"],
 
 > 您项目本地启动的URL应当为：
 >
-> https://localhost.heroxw.com:4443/?sys=32位机器码
+> https://localhost.heroxw.com:4443/?ClientId=32位机器码
 >
 > 您项目发布后，自英雄小屋客户端启动的URL为：
 >
-> https://dvaapp.heroxw.com/PRODUCTION\_ID/?sys=32位机器码
+> https://dvaapp.heroxw.com/PRODUCTION\_ID/?ClientId=32位机器码
 >
 > 机器码是表示主机身份的一串字符串，由客户端提供。
 
@@ -144,21 +144,12 @@ boot: ["axios", "dva"],
 {% tab title="created" %}
 ```javascript
 // quasar已经全局地将dva sdk导入，只需要调用 this.$dva 就可以访问SDK
-this.$dva.developer.system_code = "YOUR SYSTEM CODE"
 this.$dva.developer.developer_id = "YOUR DEVELOPER ID"
 this.$dva.developer.production_id = "YOUR PRODUCTION ID"
 this.$dva.developer.access_token = "YOUR ACCESS TOKEN"
 this.$dva.developer.reg()    // 发起注册
     .then((result) => {
         console.log(resule)    // 注册成功，产品可以正常使用
-        // Your Code
-    })
-    .reject((result) => {
-        console.log(result)    // 注册失败
-        // Your Code
-    })
-    .catch((result) => {
-        console.log(result)    // 注册异常
         // Your Code
     })
 ```
